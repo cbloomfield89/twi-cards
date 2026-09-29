@@ -33,7 +33,7 @@ export default function Home() {
       <h2 className="section-title">Your cards</h2>
       {CARDS.map((c) => (
         <button key={c.id} type="button" className="card card-link" onClick={() => navigate(`/${c.id}`)}>
-          <span className="card-link__code" aria-hidden="true">
+          <span className="card-link__code" data-color={c.color} aria-hidden="true">
             {c.short}
           </span>
           <span className="card-link__text">

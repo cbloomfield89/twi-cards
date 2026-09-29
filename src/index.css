@@ -456,8 +456,43 @@ a {
 }
 
 /* The pocket card: navy header strip like the printed TWI cards. */
+/* Card paper colors, matching the printed TWI cards: JI blue, JM green,
+   JR yellow. Soft shades chosen to sit with 9Wood orange and navy. */
+:root {
+  --paper-blue: #dcebf5;
+  --paper-blue-ink: #1d4f6e;
+  --paper-green: #deefdc;
+  --paper-green-ink: #2d5b30;
+  --paper-yellow: #fbf0c4;
+  --paper-yellow-ink: #6b5410;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper-blue: #16293a;
+    --paper-blue-ink: #a9cbe3;
+    --paper-green: #172a1b;
+    --paper-green-ink: #b1d6ad;
+    --paper-yellow: #2c2511;
+    --paper-yellow-ink: #e6d18a;
+  }
+}
+
+[data-color='blue'] {
+  --paper: var(--paper-blue);
+  --paper-ink: var(--paper-blue-ink);
+}
+[data-color='green'] {
+  --paper: var(--paper-green);
+  --paper-ink: var(--paper-green-ink);
+}
+[data-color='yellow'] {
+  --paper: var(--paper-yellow);
+  --paper-ink: var(--paper-yellow-ink);
+}
+
 .twi-card {
-  background: var(--surface-1);
+  background: var(--paper, var(--surface-1));
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
@@ -504,7 +539,7 @@ a {
   margin: 0 0 18px;
   font-size: 15px;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: var(--paper-ink, var(--text-secondary));
 }
 
 .twi-card__section {
@@ -512,14 +547,14 @@ a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-muted);
+  color: var(--paper-ink, var(--text-muted));
   margin: 0 0 10px;
 }
 
 .twi-card__before {
   margin-bottom: 22px;
   padding-bottom: 18px;
-  border-bottom: 1px solid var(--gridline);
+  border-bottom: 1px solid color-mix(in srgb, var(--paper-ink, var(--text-muted)) 22%, transparent);
 }
 
 .twi-card__list {
@@ -553,7 +588,7 @@ a {
   display: flex;
   gap: 14px;
   padding: 14px 0;
-  border-top: 1px solid var(--gridline);
+  border-top: 1px solid color-mix(in srgb, var(--paper-ink, var(--text-muted)) 22%, transparent);
 }
 
 .twi-step:first-child {
@@ -586,7 +621,7 @@ a {
   padding-left: 18px;
   font-size: 15px;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .twi-step__points li + li {
@@ -597,7 +632,8 @@ a {
   margin: 8px 0 0;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
-  background: var(--accent-tint);
+  background: var(--surface-1);
+  border-left: 4px solid var(--accent);
   color: var(--text-primary);
   font-weight: 700;
   font-size: 16px;
@@ -625,8 +661,8 @@ a {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
-  background: var(--navy);
-  color: var(--accent);
+  background: var(--paper, var(--navy));
+  color: var(--paper-ink, var(--accent));
   font-weight: 800;
   font-size: 18px;
   display: flex;

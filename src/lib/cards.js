@@ -4,7 +4,8 @@
 // person"/"them"). To change the wording, edit the text here; the screens
 // render whatever is in this file.
 //
-// Each card: id (matches the database's card column), tab label, title,
+// Each card: id (matches the database's card column), tab label, color
+// (the printed card's paper color; shades are set in index.css), title,
 // subtitle, optional "before" sections, numbered steps, and a closing line.
 
 export const CARDS = [
@@ -12,6 +13,7 @@ export const CARDS = [
     id: 'ji',
     tab: 'Instruction',
     short: 'JI',
+    color: 'blue', // TWI Job Instruction card is blue
     title: 'Job Instruction',
     subtitle: 'How to instruct',
     before: {
@@ -80,6 +82,7 @@ export const CARDS = [
     id: 'jm',
     tab: 'Methods',
     short: 'JM',
+    color: 'green', // TWI Job Methods card is green
     title: 'Job Methods',
     subtitle: 'How to improve job methods',
     intro:
@@ -127,6 +130,7 @@ export const CARDS = [
     id: 'jr',
     tab: 'Relations',
     short: 'JR',
+    color: 'yellow', // TWI Job Relations card is yellow
     title: 'Job Relations',
     subtitle: 'A supervisor gets results through people',
     before: {

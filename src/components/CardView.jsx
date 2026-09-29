@@ -11,7 +11,7 @@ export default function CardView({ cardId }) {
   if (!card) return null
 
   return (
-    <article className="twi-card" aria-labelledby={`${card.id}-title`}>
+    <article className="twi-card" data-color={card.color} aria-labelledby={`${card.id}-title`}>
       <header className="twi-card__head">
         <span className="twi-card__code" aria-hidden="true">
           {card.short}
