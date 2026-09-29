@@ -41,3 +41,5 @@ npm run dev
   email and password).
 - On a phone, add it to the home screen the same way as Kata: Safari → Share →
   Add to Home Screen, or Chrome → ⋮ → Install app.
+
+  
